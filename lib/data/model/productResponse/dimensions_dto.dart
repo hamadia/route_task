@@ -1,11 +1,13 @@
-class Dimensions {
-  Dimensions({
+import 'package:route_task/domain/entity/Dimensions.dart';
+
+class DimensionsDto {
+  DimensionsDto({
     this.width,
     this.height,
     this.depth,
   });
 
-  Dimensions.fromJson(dynamic json) {
+  DimensionsDto.fromJson(dynamic json) {
     width = json['width'];
     height = json['height'];
     depth = json['depth'];
@@ -15,12 +17,12 @@ class Dimensions {
   num? height;
   num? depth;
 
-  Dimensions copyWith({
+  DimensionsDto copyWith({
     num? width,
     num? height,
     num? depth,
   }) =>
-      Dimensions(
+      DimensionsDto(
         width: width ?? this.width,
         height: height ?? this.height,
         depth: depth ?? this.depth,
@@ -32,5 +34,9 @@ class Dimensions {
     map['height'] = height;
     map['depth'] = depth;
     return map;
+  }
+
+  Dimensions toDimensions() {
+    return Dimensions(width: width, height: height, depth: depth);
   }
 }

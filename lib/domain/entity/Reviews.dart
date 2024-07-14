@@ -14,7 +14,6 @@ class Reviews {
     reviewerName = json['reviewerName'];
     reviewerEmail = json['reviewerEmail'];
   }
-
   num? rating;
   String? comment;
   String? date;

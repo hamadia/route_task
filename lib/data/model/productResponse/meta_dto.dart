@@ -1,12 +1,14 @@
-class Meta {
-  Meta({
+import 'package:route_task/domain/entity/Meta.dart';
+
+class MetaDto {
+  MetaDto({
     this.createdAt,
     this.updatedAt,
     this.barcode,
     this.qrCode,
   });
 
-  Meta.fromJson(dynamic json) {
+  MetaDto.fromJson(dynamic json) {
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
     barcode = json['barcode'];
@@ -18,13 +20,13 @@ class Meta {
   String? barcode;
   String? qrCode;
 
-  Meta copyWith({
+  MetaDto copyWith({
     String? createdAt,
     String? updatedAt,
     String? barcode,
     String? qrCode,
   }) =>
-      Meta(
+      MetaDto(
         createdAt: createdAt ?? this.createdAt,
         updatedAt: updatedAt ?? this.updatedAt,
         barcode: barcode ?? this.barcode,
@@ -38,5 +40,14 @@ class Meta {
     map['barcode'] = barcode;
     map['qrCode'] = qrCode;
     return map;
+  }
+
+  Meta toMeta() {
+    return Meta(
+      createdAt: createdAt,
+      updatedAt: updatedAt,
+      barcode: barcode,
+      qrCode: qrCode,
+    );
   }
 }

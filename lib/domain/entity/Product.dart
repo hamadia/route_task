@@ -59,7 +59,6 @@ class Product {
     images = json['images'] != null ? json['images'].cast<String>() : [];
     thumbnail = json['thumbnail'];
   }
-
   num? id;
   String? title;
   String? description;
@@ -164,4 +163,5 @@ class Product {
     map['thumbnail'] = thumbnail;
     return map;
   }
+
 }
